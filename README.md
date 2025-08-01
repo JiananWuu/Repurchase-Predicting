@@ -30,7 +30,7 @@ The optimized lightGBM model achieved:
 
 #### Limitations:
 The data and thus the model is highly biased toward class 0. Precision for class 1 (positive class) is very low – indicating many false positives.
-However, recall for class 1 is high (0.90) – the model is catching most of the true positives.
+However, recall for class 1 is high – the model is catching most of the true positives.
 
 In real world, as a retargeting dsp, we would like to make recall high, since we want to catch payers as much as possible and at the same time spend advertisers' money in full. If precision is too high, the model would be too conserverative and spend very less. But because we only get a 1/10th sample of the 1 month data. There is a lot of room to improve if given larger data. 
 
