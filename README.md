@@ -35,11 +35,9 @@ Attention Mechanism: Explore attention-based models to better weight significant
 Class Weighting or Resampling: Apply positive class weighting or SMOTE to better handle class imbalance and enhance recall.
 Expanded Feature Set: Integrate deeper user-interest and intent features such as product affinity and category-level behaviors.
 
-#### Outline of project
+#### Project Link
 
-- [Link to notebook 1]()
-- [Link to notebook 2]()
-- [Link to notebook 3]()
+- https://github.com/JiananWuu/Repurchase-Predicting/blob/main/Capstone_Project_Repurchase_final.ipynb 
 
 
 ##### Contact and Further Information
