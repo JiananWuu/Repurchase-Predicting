@@ -16,20 +16,26 @@ The dataset used in this project is sourced from Kaggle and can be accessed at h
 
 #### Methodology
 Data Aggregation: Aggregated user-level behavioral features including Recency, Frequency, and Monetary (RFM) metrics.
-Feature Engineering: Derived additional meaningful metrics such as session counts, event type spans, conversion rates, and purchase lag times.
-Modeling: Applied Gradient Boosting (with hyperparameter tuning and threshold optimization) to classify users based on future repurchase likelihood.
+Feature Engineering: Derived additional meaningful metrics such as event type spans, conversion rates, and purchase lag times.
+Modeling: compare three models(LogisticRegression,RandomForest,LightGBM) to classify users based on future repurchase likelihood.
 Evaluation: Assessed model performance primarily through Recall, Precision, F1-score, and ROC-AUC.
 
 #### Results
-The optimized Gradient Boosting model achieved:
-ROC AUC: ~0.805
-Recall: Approximately 24%
-Precision: Approximately 18%
-F1-score: Approximately 21%
-While the model showed a moderate level of accuracy and decent ROC AUC, the recall rate (critical for advertising applications) indicated significant room for improvement.
+The optimized lightGBM model achieved:
+- Accuracy: 0.37
+- ROC AUC: 0.7430
+- Average Precision (AP): 0.1526
+- Weighted F1-score: 0.51
+- Macro F1-score: 0.31
+
+#### Limitations:
+The data and thus the model is highly biased toward class 0. Precision for class 1 (positive class) is very low – indicating many false positives.
+However, recall for class 1 is high (0.90) – the model is catching most of the true positives.
+
+In real world, as a retargeting dsp, we would like to make recall high, since we want to catch payers as much as possible and at the same time spend advertisers' money in full. If precision is too high, the model would be too conserverative and spend very less. But because we only get a 1/10th sample of the 1 month data. There is a lot of room to improve if given larger data. 
 
 #### Next steps
-To further enhance the model's performance, particularly recall, suggested next steps include:
+To further enhance the model's performance, next steps include:
 Session Embedding: Incorporate GRU-based session embedding features to capture dynamic user behavior patterns.
 Attention Mechanism: Explore attention-based models to better weight significant user actions within sessions.
 Class Weighting or Resampling: Apply positive class weighting or SMOTE to better handle class imbalance and enhance recall.
